@@ -1,0 +1,692 @@
+ THIS SOFTWARE AND ANY ACCOMPANYING DOCUMENTATION
+ IS RELEASED "AS IS".  THE U.S. GOVERNMENT MAKES NO
+ WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, CONCERNING
+ THIS SOFTWARE AND ANY ACCOMPANYING DOCUMENTATION,
+ INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OF
+ MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+ IN NO EVENT WILL THE U.S. GOVERNMENT BE LIABLE FOR ANY
+ DAMAGES, INCLUDING LOST PROFITS, LOST SAVINGS OR OTHER
+ INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE 
+ USE, OR INABILITY TO USE, THIS SOFTWARE OR ANY
+ ACCOMPANYING DOCUMENTATION, EVEN IF INFORMED IN ADVANCE
+ OF THE POSSIBILITY OF SUCH DAMAGES.
+
+
+
+
+
+
+
+
+                                        ****************************************************
+                                        *    USAF STABILITY AND CONTROL  DIGITAL DATCOM    *
+                                        *    PROGRAM REV. JAN 96   DIRECT INQUIRIES TO:    *
+                                        *   WRIGHT LABORATORY  (WL/FIGC)  ATTN: W. BLAKE   *
+                                        *         WRIGHT PATTERSON AFB, OHIO  45433        *
+                                        *    PHONE (513) 255-6764,   FAX (513) 258-4054    *
+                                        ****************************************************
+1                         CONERR - INPUT ERROR CHECKING
+0 ERROR CODES - N* DENOTES THE NUMBER OF OCCURENCES OF EACH ERROR
+0 A - UNKNOWN VARIABLE NAME
+0 B - MISSING EQUAL SIGN FOLLOWING VARIABLE NAME
+0 C - NON-ARRAY VARIABLE HAS AN ARRAY ELEMENT DESIGNATION - (N)
+0 D - NON-ARRAY VARIABLE HAS MULTIPLE VALUES ASSIGNED
+0 E - ASSIGNED VALUES EXCEED ARRAY DIMENSION
+0 F - SYNTAX ERROR
+
+0******************************  INPUT DATA CARDS  ******************************
+
+ DIM FT                                                                          
+ DERIV DEG                                                                       
+ DAMP                                                                            
+ PART                                                                            
+  $FLTCON WT=50000.0, LOOP=2.0,                                                  
+          NMACH=4.0, MACH(1)=0.9, 1.0, 1.1, 1.2,                                 
+          NALT=1.0, ALT(1)=20000.0,                                              
+          NALPHA=9.0,                                                            
+          ALSCHD(1)= -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0,            
+          STMACH=0.6, TSMACH=1.4, TR=1.0$                                        
+  $OPTINS SREF=900.0, CBARR=28.4, BLREF=53.2, ROUGFC=0.02E-3$                    
+  $SYNTHS XCG=34.7, ZCG=0.0,                                                     
+          XW=20.49,  ZW=0.0,  ALIW=0.0,                                          
+          XV=46.46,  ZV=0.0,                                                     
+          SCALE=1.0, VERTUP=.TRUE.$                                              
+  $BODY NX=7.0,                                                                  
+        X(1)=0.0,0.01289,0.62916,21.93,27.57,45.0,63.45,                         
+        R(1)=0.0,0.005,0.23862,1.95,2.5,2.0,2.125,                               
+        ZU(1)=0.0,0.005,0.47724,2.03,1.5,2.0,2.125,                              
+        ZL(1)=0.0,-0.005,-0.47724,-2.03,-1.5,-2.0,-2.125                            ** ERROR **  0*A  0*B  0*C  0*D  0*E 25*F
+        BNOSE=2.0, BLN=21.9,                                                     
+        ITYPE=2.0, METHOD=1.0$                                                   
+  $WGPLNF CHRDR=43.0,   CHRDTP=6.0,                                              
+          SSPN=26.5,  SSPNE=21.4,                                                
+          SAVSI=1.3,                                                             
+          CHSTAT=0.25,                                                           
+          TYPE=2.0$                                                              
+ NACA W 6 64-208                                                                 
+ NACA V 4 0010                                                                   
+  $VTPLNF CHRDTP=8.0, SSPNE=9.05,  SSPN=15.045, CHRDR=16.0,                      
+         CHSTAT=0.25, DHDADI=45.0,TYPE=1.0$                                      
+ CASEID TOTAL AIRCRAFT                                                           
+1          THE FOLLOWING IS A LIST OF ALL INPUT CARDS FOR THIS CASE.
+0
+ DIM FT                                                                          
+ DERIV DEG                                                                       
+ DAMP                                                                            
+ PART                                                                            
+  $FLTCON WT=50000.0, LOOP=2.0,                                                  
+          NMACH=4.0, MACH(1)=0.9, 1.0, 1.1, 1.2,                                 
+          NALT=1.0, ALT(1)=20000.0,                                              
+          NALPHA=9.0,                                                            
+          ALSCHD(1)= -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0,            
+          STMACH=0.6, TSMACH=1.4, TR=1.0$                                        
+  $OPTINS SREF=900.0, CBARR=28.4, BLREF=53.2, ROUGFC=0.02E-3$                    
+  $SYNTHS XCG=34.7, ZCG=0.0,                                                     
+          XW=20.49,  ZW=0.0,  ALIW=0.0,                                          
+          XV=46.46,  ZV=0.0,                                                     
+          SCALE=1.0, VERTUP=.TRUE.$                                              
+  $BODY NX=7.0,                                                                  
+        X(1)=0.0,0.01289,0.62916,21.93,27.57,45.0,63.45,                         
+        R(1)=0.0,0.005,0.23862,1.95,2.5,2.0,2.125,                               
+        ZU(1)=0.0,0.005,0.47724,2.03,1.5,2.0,2.125,                              
+        ZL(1)=0.0,-0.005,-0.47724,-2.03,-1.5,-2.0,-2.125                         
+        BNOSE=2.0, BLN=21.9,                                                     
+        ITYPE=2.0, METHOD=1.0$                                                   
+  $WGPLNF CHRDR=43.0,   CHRDTP=6.0,                                              
+          SSPN=26.5,  SSPNE=21.4,                                                
+          SAVSI=1.3,                                                             
+          CHSTAT=0.25,                                                           
+          TYPE=2.0$                                                              
+ NACA W 6 64-208                                                                 
+ NACA V 4 0010                                                                   
+  $VTPLNF CHRDTP=8.0, SSPNE=9.05,  SSPN=15.045, CHRDR=16.0,                      
+         CHSTAT=0.25, DHDADI=45.0,TYPE=1.0$                                      
+ CASEID TOTAL AIRCRAFT                                                           
+0 INPUT DIMENSIONS ARE IN FT, SCALE FACTOR IS 1.0000
+
+0*** WARNING *** WING NOT STRAIGHT TAPERED. UNIFORM SECTION ASSUMED.
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM   
+                                                        WING SECTION DEFINITION
+                                                                NACA 64-208
+     UPPER ABSCISSA     UPPER ORDINATE     LOWER ABSCISSA     LOWER ORDINATE      X-FRACTION CHORD    MEAN LINE    THICKNESS
+          .00000             .00000            .00000            .00000               .00000            .00000        .00000
+          .00068             .00300            .00132           -.00275               .00100            .00013        .00578
+          .00160             .00425            .00240           -.00379               .00200            .00023        .00808
+          .00255             .00520            .00345           -.00455               .00300            .00033        .00980
+          .00351             .00601            .00449           -.00518               .00400            .00042        .01123
+          .00448             .00671            .00552           -.00571               .00500            .00050        .01246
+          .00545             .00735            .00655           -.00618               .00600            .00058        .01357
+          .00643             .00793            .00757           -.00660               .00700            .00066        .01457
+          .00741             .00847            .00859           -.00698               .00800            .00074        .01550
+          .00839             .00897            .00961           -.00734               .00900            .00082        .01636
+          .00937             .00945            .01063           -.00767               .01000            .00089        .01716
+          .01928             .01324            .02072           -.01011               .02000            .00156        .02339
+          .02923             .01608            .03077           -.01179               .03000            .00214        .02790
+          .03920             .01843            .04080           -.01309               .04000            .00267        .03156
+          .04919             .02049            .05081           -.01417               .05000            .00316        .03469
+          .05918             .02233            .06082           -.01511               .06000            .00361        .03748
+          .06918             .02403            .07082           -.01595               .07000            .00404        .04001
+          .07918             .02560            .08082           -.01672               .08000            .00444        .04235
+          .08918             .02707            .09082           -.01744               .09000            .00482        .04455
+          .09919             .02847            .10081           -.01812               .10000            .00517        .04662
+          .10919             .02980            .11081           -.01877               .11000            .00551        .04860
+          .11920             .03108            .12080           -.01940               .12000            .00584        .05050
+          .12921             .03230            .13079           -.02000               .13000            .00615        .05232
+          .13922             .03348            .14078           -.02059               .14000            .00645        .05408
+          .14923             .03461            .15077           -.02116               .15000            .00673        .05579
+          .15924             .03571            .16076           -.02171               .16000            .00700        .05744
+          .16926             .03677            .17074           -.02226               .17000            .00726        .05905
+          .17927             .03780            .18073           -.02279               .18000            .00750        .06060
+          .18928             .03879            .19072           -.02331               .19000            .00774        .06211
+          .19930             .03974            .20070           -.02382               .20000            .00796        .06357
+          .20931             .04067            .21069           -.02431               .21000            .00818        .06499
+          .21933             .04156            .22067           -.02479               .22000            .00839        .06636
+          .22935             .04241            .23065           -.02525               .23000            .00858        .06767
+          .23937             .04323            .24063           -.02569               .24000            .00877        .06894
+          .24939             .04402            .25061           -.02612               .25000            .00895        .07015
+          .25941             .04477            .26059           -.02653               .26000            .00912        .07131
+          .26943             .04548            .27057           -.02692               .27000            .00928        .07241
+          .27945             .04616            .28055           -.02728               .28000            .00944        .07344
+          .28947             .04679            .29053           -.02762               .29000            .00958        .07442
+          .29949             .04738            .30051           -.02794               .30000            .00972        .07533
+          .34961             .04968            .35039           -.02907               .35000            .01030        .07875
+          .39974             .05071            .40026           -.02929               .40000            .01071        .08000
+          .44987             .05032            .45013           -.02842               .45000            .01095        .07874
+          .50000             .04863            .50000           -.02657               .50000            .01103        .07521
+          .55011             .04585            .54989           -.02394               .55000            .01095        .06979
+          .60020             .04215            .59980           -.02073               .60000            .01071        .06288
+          .65027             .03773            .64973           -.01712               .65000            .01030        .05486
+          .70031             .03278            .69969           -.01333               .70000            .00972        .04611
+          .75032             .02746            .74968           -.00956               .75000            .00895        .03702
+          .80031             .02195            .79969           -.00602               .80000            .00796        .02798
+          .82030             .01973            .81970           -.00473               .82000            .00750        .02447
+          .84028             .01752            .83972           -.00352               .84000            .00700        .02104
+          .86026             .01531            .85974           -.00242               .86000            .00645        .01774
+          .88023             .01312            .87977           -.00145               .88000            .00584        .01458
+          .90020             .01096            .89980           -.00061               .90000            .00517        .01158
+          .92017             .00883            .91983            .00005               .92000            .00444        .00878
+          .94014             .00671            .93986            .00052               .94000            .00361        .00620
+          .96010             .00460            .95990            .00075               .96000            .00267        .00386
+          .98006             .00245            .97994            .00067               .98000            .00156        .00178
+         1.00000             .00000           1.00000            .00000              1.00000            .00000        .00000
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM   
+                                                        WING SECTION DEFINITION
+0                                 IDEAL ANGLE OF ATTACK =    .00000 DEG.
+
+                              ZERO LIFT ANGLE OF ATTACK =  -1.60561 DEG.
+
+                                 IDEAL LIFT COEFFICIENT =    .20000
+
+                  ZERO LIFT PITCHING MOMENT COEFFICIENT =   -.04487
+
+                             MACH ZERO LIFT-CURVE-SLOPE =    .10212 /DEG.
+
+                                    LEADING EDGE RADIUS =    .00442 FRACTION CHORD
+
+                              MAXIMUM AIRFOIL THICKNESS =    .08000 FRACTION CHORD
+
+                                                DELTA-Y =   1.52756 PERCENT CHORD
+
+
+0                                    *** CREST CRITICAL MACH NUMBER EXCEEDED ***
+
+                                    CREST CRITICAL MACH =    .77657
+
+                                               LOCATION =    .43045 FRACTION CHORD
+
+                                       LIFT-CURVE-SLOPE =    .14014 /DEG.
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM   
+                                                    VERTICAL TAIL SECTION DEFINITION
+                                                                NACA 0010
+     UPPER ABSCISSA     UPPER ORDINATE     LOWER ABSCISSA     LOWER ORDINATE      X-FRACTION CHORD    MEAN LINE    THICKNESS
+          .00000             .00000            .00000            .00000               .00000            .00000        .00000
+          .00100             .00463            .00100           -.00463               .00100            .00000        .00926
+          .00200             .00651            .00200           -.00651               .00200            .00000        .01302
+          .00300             .00794            .00300           -.00794               .00300            .00000        .01588
+          .00400             .00913            .00400           -.00913               .00400            .00000        .01827
+          .00500             .01018            .00500           -.01018               .00500            .00000        .02036
+          .00600             .01111            .00600           -.01111               .00600            .00000        .02223
+          .00700             .01197            .00700           -.01197               .00700            .00000        .02394
+          .00800             .01276            .00800           -.01276               .00800            .00000        .02553
+          .00900             .01350            .00900           -.01350               .00900            .00000        .02700
+          .01000             .01420            .01000           -.01420               .01000            .00000        .02840
+          .02000             .01966            .02000           -.01966               .02000            .00000        .03933
+          .03000             .02367            .03000           -.02367               .03000            .00000        .04734
+          .04000             .02690            .04000           -.02690               .04000            .00000        .05380
+          .05000             .02962            .05000           -.02962               .05000            .00000        .05924
+          .06000             .03198            .06000           -.03198               .06000            .00000        .06396
+          .07000             .03405            .07000           -.03405               .07000            .00000        .06810
+          .08000             .03589            .08000           -.03589               .08000            .00000        .07179
+          .09000             .03754            .09000           -.03754               .09000            .00000        .07508
+          .10000             .03902            .10000           -.03902               .10000            .00000        .07805
+          .11000             .04036            .11000           -.04036               .11000            .00000        .08072
+          .12000             .04157            .12000           -.04157               .12000            .00000        .08314
+          .13000             .04266            .13000           -.04266               .13000            .00000        .08532
+          .14000             .04365            .14000           -.04365               .14000            .00000        .08730
+          .15000             .04454            .15000           -.04454               .15000            .00000        .08909
+          .16000             .04535            .16000           -.04535               .16000            .00000        .09070
+          .17000             .04607            .17000           -.04607               .17000            .00000        .09215
+          .18000             .04672            .18000           -.04672               .18000            .00000        .09344
+          .19000             .04730            .19000           -.04730               .19000            .00000        .09460
+          .20000             .04781            .20000           -.04781               .20000            .00000        .09563
+          .21000             .04826            .21000           -.04826               .21000            .00000        .09653
+          .22000             .04866            .22000           -.04866               .22000            .00000        .09731
+          .23000             .04899            .23000           -.04899               .23000            .00000        .09798
+          .24000             .04928            .24000           -.04928               .24000            .00000        .09855
+          .25000             .04951            .25000           -.04951               .25000            .00000        .09902
+          .26000             .04970            .26000           -.04970               .26000            .00000        .09939
+          .27000             .04984            .27000           -.04984               .27000            .00000        .09968
+          .28000             .04994            .28000           -.04994               .28000            .00000        .09988
+          .29000             .05000            .29000           -.05000               .29000            .00000        .09999
+          .30000             .05001            .30000           -.05001               .30000            .00000        .10003
+          .35000             .04957            .35000           -.04957               .35000            .00000        .09914
+          .40000             .04836            .40000           -.04836               .40000            .00000        .09672
+          .45000             .04651            .45000           -.04651               .45000            .00000        .09301
+          .50000             .04412            .50000           -.04412               .50000            .00000        .08823
+          .55000             .04127            .55000           -.04127               .55000            .00000        .08254
+          .60000             .03803            .60000           -.03803               .60000            .00000        .07606
+          .65000             .03444            .65000           -.03444               .65000            .00000        .06887
+          .70000             .03053            .70000           -.03053               .70000            .00000        .06107
+          .75000             .02634            .75000           -.02634               .75000            .00000        .05267
+          .80000             .02186            .80000           -.02186               .80000            .00000        .04372
+          .82000             .01999            .82000           -.01999               .82000            .00000        .03998
+          .84000             .01808            .84000           -.01808               .84000            .00000        .03616
+          .86000             .01612            .86000           -.01612               .86000            .00000        .03224
+          .88000             .01412            .88000           -.01412               .88000            .00000        .02823
+          .90000             .01206            .90000           -.01206               .90000            .00000        .02413
+          .92000             .00996            .92000           -.00996               .92000            .00000        .01993
+          .94000             .00782            .94000           -.00782               .94000            .00000        .01563
+          .96000             .00561            .96000           -.00561               .96000            .00000        .01123
+          .98000             .00336            .98000           -.00336               .98000            .00000        .00672
+         1.00000             .00000           1.00000            .00000              1.00000            .00000        .00000
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM   
+                                                    VERTICAL TAIL SECTION DEFINITION
+0                                 IDEAL ANGLE OF ATTACK =    .00000 DEG.
+
+                              ZERO LIFT ANGLE OF ATTACK =    .00000 DEG.
+
+                                 IDEAL LIFT COEFFICIENT =    .00000
+
+                  ZERO LIFT PITCHING MOMENT COEFFICIENT =    .00000
+
+                             MACH ZERO LIFT-CURVE-SLOPE =    .09755 /DEG.
+
+                                    LEADING EDGE RADIUS =    .01102 FRACTION CHORD
+
+                              MAXIMUM AIRFOIL THICKNESS =    .10000 FRACTION CHORD
+
+                                                DELTA-Y =   2.64081 PERCENT CHORD
+
+
+0                                    *** CREST CRITICAL MACH NUMBER EXCEEDED ***
+
+                                    CREST CRITICAL MACH =    .75385
+
+                                               LOCATION =    .25745 FRACTION CHORD
+
+                                       LIFT-CURVE-SLOPE =    .11901 /DEG.
+1                               AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                         CHARACTERISTICS AT ANGLE OF ATTACK AND IN SIDESLIP
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ 
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0  .900   20000.00     933.13   9.7327E+02     447.415     3.5412E+06           900.000     28.400    53.200    34.700      .000
+0                                                               -------------------DERIVATIVE (PER DEGREE)-------------------
+0 ALPHA     CD       CL       CM       CN       CA       XCP        CLA          CMA          CYB          CNB          CLB
+0
+   -4.0    NDM      NDM       NDM     NDM      NDM      NDM        NDM          NDM       -5.004E-04   -2.708E-04      NDM 
+   -3.0                       NDM                                                                                      NDM 
+   -2.0                       NDM                                                                                      NDM 
+   -1.0                       NDM                                                                                      NDM 
+     .0                       NDM                                                                                      NDM 
+    1.0                       NDM                                                                                      NDM 
+    2.0                       NDM                                                                                      NDM 
+    3.0                       NDM                                                                                      NDM 
+    4.0                       NDM                                                                                      NDM 
+0*** NDM PRINTED WHEN NO DATCOM METHODS EXIST
+1                               AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                                         DYNAMIC DERIVATIVES
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ 
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0  .900   20000.00     933.13   9.7327E+02     447.415     3.5412E+06           900.000     28.400    53.200    34.700      .000
+                                                    DYNAMIC DERIVATIVES (PER DEGREE)
+0           -------PITCHING-------    -----ACCELERATION------    --------------ROLLING--------------    --------YAWING--------
+0   ALPHA       CLQ          CMQ           CLAD         CMAD         CLP          CYP          CNP          CNR          CLR
+0
+    -4.00      NDM          NDM           NDM          NDM          NDM          NDM          NDM          NDM          NDM 
+    -3.00                                                           NDM          NDM          NDM          NDM          NDM 
+    -2.00                                                           NDM          NDM          NDM          NDM          NDM 
+    -1.00                                                           NDM          NDM          NDM          NDM          NDM 
+      .00                                                           NDM          NDM          NDM          NDM          NDM 
+     1.00                                                           NDM          NDM          NDM          NDM          NDM 
+     2.00                                                           NDM          NDM          NDM          NDM          NDM 
+     3.00                                                           NDM          NDM          NDM          NDM          NDM 
+     4.00                                                           NDM          NDM          NDM          NDM          NDM 
+0*** NDM PRINTED WHEN NO DATCOM METHODS EXIST
+0*** VEHICLE WEIGHT =  50000.00 LB.
+0*** LEVEL FLIGHT LIFT COEFFICIENT =  .10067
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                             CONFIGURATION AUXILIARY AND PARTIAL OUTPUT
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0  .900   20000.00     933.13   9.7327E+02     447.415     3.5412E+06           900.000     28.400    53.200    34.700      .000
+
+
+                                                       BASIC BODY PROPERTIES
+
+            WETTED AREA      XCG     ZCG     BASE AREA     ZERO LIFT DRAG   BASE DRAG   FRICTION DRAG   PRESSURE DRAG
+              .7093E+03    34.70     .00      14.1863         .3196E-02     .1687E-02     .1422E-02       .8688E-04
+
+
+                                         XCG RELATIVE TO THEORETICAL LEADING EDGE MAC=  10.52
+
+
+                                                       BASIC PLANFORM PROPERTIES
+
+                                    TAPER     ASPECT   QUARTER CHORD             QUARTER CHORD              ZERO LIFT    FRICTION
+                         AREA       RATIO      RATIO       SWEEP        MAC        X(MAC)       Y(MAC)        DRAG     COEFFICIENT
+0      WING
+ THEORITICAL INBOARD
++                      .1298E+04     .140     .2163E+01     1.300     .292E+02     .315E+02     .991E+01                       
+     EXPOSED INBOARD
++                      .8962E+03     .167     .2044E+01     1.300     .245E+02     .315E+02     .133E+02                   NA  
+            OUTBOARD
++                      .1200E-28    1.000     .1000E+01      .000     .600E+01     .220E+02     .214E+02                   NA  
+   TOTAL THEORITICAL
++                      .1298E+04     .140     .2163E+01     1.300     .292E+02     .315E+02     .991E+01                       
+       TOTAL EXPOSED
++                      .8962E+03     .167     .2044E+01     1.300     .245E+02     .315E+02     .133E+02      NA           NA  
+0   VERTICAL TAIL
+   TOTAL THEORITICAL
++                      .1805E+03     .500     .1254E+01      .000     .124E+02     .505E+02     .669E+01                       
+       TOTAL EXPOSED
++                      .9418E+02     .624     .8697E+00      .000     .106E+02     .505E+02     .102E+02      NA           NA  
+0*** NA PRINTED WHEN METHOD NOT APPLICABLE
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                             CONFIGURATION AUXILIARY AND PARTIAL OUTPUT
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0  .900   20000.00     933.13   9.7327E+02     447.415     3.5412E+06           900.000     28.400    53.200    34.700      .000
+0          CLA-B(W)= 1.000E-30     CLA-W(B)= 1.000E-30     K-B(W)= 1.000E-30     K-W(B)= 1.000E-30     XAC/C-B(W)= 1.000E-30
+1
+1                               AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                         CHARACTERISTICS AT ANGLE OF ATTACK AND IN SIDESLIP
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ 
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.000   20000.00    1036.81   9.7327E+02     447.415     3.9346E+06           900.000     28.400    53.200    34.700      .000
+0                                                               -------------------DERIVATIVE (PER DEGREE)-------------------
+0 ALPHA     CD       CL       CM       CN       CA       XCP        CLA          CMA          CYB          CNB          CLB
+0
+   -4.0    NDM      NDM       NDM     NDM      NDM      NDM        NDM          NDM       -5.085E-04   -2.736E-04      NDM 
+   -3.0                       NDM                                                                                      NDM 
+   -2.0                       NDM                                                                                      NDM 
+   -1.0                       NDM                                                                                      NDM 
+     .0                       NDM                                                                                      NDM 
+    1.0                       NDM                                                                                      NDM 
+    2.0                       NDM                                                                                      NDM 
+    3.0                       NDM                                                                                      NDM 
+    4.0                       NDM                                                                                      NDM 
+0*** NDM PRINTED WHEN NO DATCOM METHODS EXIST
+1                               AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                                         DYNAMIC DERIVATIVES
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ 
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.000   20000.00    1036.81   9.7327E+02     447.415     3.9346E+06           900.000     28.400    53.200    34.700      .000
+                                                    DYNAMIC DERIVATIVES (PER DEGREE)
+0           -------PITCHING-------    -----ACCELERATION------    --------------ROLLING--------------    --------YAWING--------
+0   ALPHA       CLQ          CMQ           CLAD         CMAD         CLP          CYP          CNP          CNR          CLR
+0
+    -4.00      NDM          NDM           NDM          NDM          NDM          NDM          NDM          NDM          NDM 
+    -3.00                                                           NDM          NDM          NDM          NDM          NDM 
+    -2.00                                                           NDM          NDM          NDM          NDM          NDM 
+    -1.00                                                           NDM          NDM          NDM          NDM          NDM 
+      .00                                                           NDM          NDM          NDM          NDM          NDM 
+     1.00                                                           NDM          NDM          NDM          NDM          NDM 
+     2.00                                                           NDM          NDM          NDM          NDM          NDM 
+     3.00                                                           NDM          NDM          NDM          NDM          NDM 
+     4.00                                                           NDM          NDM          NDM          NDM          NDM 
+0*** NDM PRINTED WHEN NO DATCOM METHODS EXIST
+0*** VEHICLE WEIGHT =  50000.00 LB.
+0*** LEVEL FLIGHT LIFT COEFFICIENT =  .08154
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                             CONFIGURATION AUXILIARY AND PARTIAL OUTPUT
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.000   20000.00    1036.81   9.7327E+02     447.415     3.9346E+06           900.000     28.400    53.200    34.700      .000
+
+
+                                                       BASIC BODY PROPERTIES
+
+            WETTED AREA      XCG     ZCG     BASE AREA     ZERO LIFT DRAG   BASE DRAG   FRICTION DRAG   PRESSURE DRAG
+              .7093E+03    34.70     .00      14.1863         .4605E-02     .2554E-02     .1401E-02       .8557E-04
+
+
+                                         XCG RELATIVE TO THEORETICAL LEADING EDGE MAC=  10.52
+
+
+                                                       BASIC PLANFORM PROPERTIES
+
+                                    TAPER     ASPECT   QUARTER CHORD             QUARTER CHORD              ZERO LIFT    FRICTION
+                         AREA       RATIO      RATIO       SWEEP        MAC        X(MAC)       Y(MAC)        DRAG     COEFFICIENT
+0      WING
+ THEORITICAL INBOARD
++                      .1298E+04     .140     .2163E+01     1.300     .292E+02     .315E+02     .991E+01                       
+     EXPOSED INBOARD
++                      .8962E+03     .167     .2044E+01     1.300     .245E+02     .315E+02     .133E+02                   NA  
+            OUTBOARD
++                      .1200E-28    1.000     .1000E+01      .000     .600E+01     .220E+02     .214E+02                   NA  
+   TOTAL THEORITICAL
++                      .1298E+04     .140     .2163E+01     1.300     .292E+02     .315E+02     .991E+01                       
+       TOTAL EXPOSED
++                      .8962E+03     .167     .2044E+01     1.300     .245E+02     .315E+02     .133E+02      NA           NA  
+0   VERTICAL TAIL
+   TOTAL THEORITICAL
++                      .1805E+03     .500     .1254E+01      .000     .124E+02     .505E+02     .669E+01                       
+       TOTAL EXPOSED
++                      .9418E+02     .624     .8697E+00      .000     .106E+02     .505E+02     .102E+02      NA           NA  
+0*** NA PRINTED WHEN METHOD NOT APPLICABLE
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                             CONFIGURATION AUXILIARY AND PARTIAL OUTPUT
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.000   20000.00    1036.81   9.7327E+02     447.415     3.9346E+06           900.000     28.400    53.200    34.700      .000
+0          CLA-B(W)= 1.000E-30     CLA-W(B)= 1.000E-30     K-B(W)= 1.000E-30     K-W(B)= 1.000E-30     XAC/C-B(W)= 1.000E-30
+1
+1                               AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                         CHARACTERISTICS AT ANGLE OF ATTACK AND IN SIDESLIP
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ 
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.100   20000.00    1140.49   9.7327E+02     447.415     4.3281E+06           900.000     28.400    53.200    34.700      .000
+0                                                               -------------------DERIVATIVE (PER DEGREE)-------------------
+0 ALPHA     CD       CL       CM       CN       CA       XCP        CLA          CMA          CYB          CNB          CLB
+0
+   -4.0    NDM      NDM       NDM     NDM      NDM      NDM        NDM          NDM       -5.167E-04   -2.761E-04      NDM 
+   -3.0                       NDM                                                                                      NDM 
+   -2.0                       NDM                                                                                      NDM 
+   -1.0                       NDM                                                                                      NDM 
+     .0                       NDM                                                                                      NDM 
+    1.0                       NDM                                                                                      NDM 
+    2.0                       NDM                                                                                      NDM 
+    3.0                       NDM                                                                                      NDM 
+    4.0                       NDM                                                                                      NDM 
+0*** NDM PRINTED WHEN NO DATCOM METHODS EXIST
+1                               AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                                         DYNAMIC DERIVATIVES
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ 
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.100   20000.00    1140.49   9.7327E+02     447.415     4.3281E+06           900.000     28.400    53.200    34.700      .000
+                                                    DYNAMIC DERIVATIVES (PER DEGREE)
+0           -------PITCHING-------    -----ACCELERATION------    --------------ROLLING--------------    --------YAWING--------
+0   ALPHA       CLQ          CMQ           CLAD         CMAD         CLP          CYP          CNP          CNR          CLR
+0
+    -4.00      NDM          NDM           NDM          NDM          NDM          NDM          NDM          NDM          NDM 
+    -3.00                                                           NDM          NDM          NDM          NDM          NDM 
+    -2.00                                                           NDM          NDM          NDM          NDM          NDM 
+    -1.00                                                           NDM          NDM          NDM          NDM          NDM 
+      .00                                                           NDM          NDM          NDM          NDM          NDM 
+     1.00                                                           NDM          NDM          NDM          NDM          NDM 
+     2.00                                                           NDM          NDM          NDM          NDM          NDM 
+     3.00                                                           NDM          NDM          NDM          NDM          NDM 
+     4.00                                                           NDM          NDM          NDM          NDM          NDM 
+0*** NDM PRINTED WHEN NO DATCOM METHODS EXIST
+0*** VEHICLE WEIGHT =  50000.00 LB.
+0*** LEVEL FLIGHT LIFT COEFFICIENT =  .06739
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                             CONFIGURATION AUXILIARY AND PARTIAL OUTPUT
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.100   20000.00    1140.49   9.7327E+02     447.415     4.3281E+06           900.000     28.400    53.200    34.700      .000
+
+
+                                                       BASIC BODY PROPERTIES
+
+            WETTED AREA      XCG     ZCG     BASE AREA     ZERO LIFT DRAG   BASE DRAG   FRICTION DRAG   PRESSURE DRAG
+              .7093E+03    34.70     .00      14.1863         .4240E-02     .1670E-02     .1382E-02       .4220E-04
+
+
+                                         XCG RELATIVE TO THEORETICAL LEADING EDGE MAC=  10.52
+
+
+                                                       BASIC PLANFORM PROPERTIES
+
+                                    TAPER     ASPECT   QUARTER CHORD             QUARTER CHORD              ZERO LIFT    FRICTION
+                         AREA       RATIO      RATIO       SWEEP        MAC        X(MAC)       Y(MAC)        DRAG     COEFFICIENT
+0      WING
+ THEORITICAL INBOARD
++                      .1298E+04     .140     .2163E+01     1.300     .292E+02     .315E+02     .991E+01                       
+     EXPOSED INBOARD
++                      .8962E+03     .167     .2044E+01     1.300     .245E+02     .315E+02     .133E+02                   NA  
+            OUTBOARD
++                      .1200E-28    1.000     .1000E+01      .000     .600E+01     .220E+02     .214E+02                   NA  
+   TOTAL THEORITICAL
++                      .1298E+04     .140     .2163E+01     1.300     .292E+02     .315E+02     .991E+01                       
+       TOTAL EXPOSED
++                      .8962E+03     .167     .2044E+01     1.300     .245E+02     .315E+02     .133E+02      NA           NA  
+0   VERTICAL TAIL
+   TOTAL THEORITICAL
++                      .1805E+03     .500     .1254E+01      .000     .124E+02     .505E+02     .669E+01                       
+       TOTAL EXPOSED
++                      .9418E+02     .624     .8697E+00      .000     .106E+02     .505E+02     .102E+02      NA           NA  
+0*** NA PRINTED WHEN METHOD NOT APPLICABLE
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                             CONFIGURATION AUXILIARY AND PARTIAL OUTPUT
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.100   20000.00    1140.49   9.7327E+02     447.415     4.3281E+06           900.000     28.400    53.200    34.700      .000
+0          CLA-B(W)= 1.000E-30     CLA-W(B)= 1.000E-30     K-B(W)= 1.000E-30     K-W(B)= 1.000E-30     XAC/C-B(W)= 1.000E-30
+1
+1                               AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                         CHARACTERISTICS AT ANGLE OF ATTACK AND IN SIDESLIP
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ 
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.200   20000.00    1244.18   9.7327E+02     447.415     4.7215E+06           900.000     28.400    53.200    34.700      .000
+0                                                               -------------------DERIVATIVE (PER DEGREE)-------------------
+0 ALPHA     CD       CL       CM       CN       CA       XCP        CLA          CMA          CYB          CNB          CLB
+0
+   -4.0    NDM      NDM       NDM     NDM      NDM      NDM        NDM          NDM       -5.248E-04   -2.784E-04      NDM 
+   -3.0                       NDM                                                                                      NDM 
+   -2.0                       NDM                                                                                      NDM 
+   -1.0                       NDM                                                                                      NDM 
+     .0                       NDM                                                                                      NDM 
+    1.0                       NDM                                                                                      NDM 
+    2.0                       NDM                                                                                      NDM 
+    3.0                       NDM                                                                                      NDM 
+    4.0                       NDM                                                                                      NDM 
+0*** NDM PRINTED WHEN NO DATCOM METHODS EXIST
+1                               AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                                         DYNAMIC DERIVATIVES
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ 
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.200   20000.00    1244.18   9.7327E+02     447.415     4.7215E+06           900.000     28.400    53.200    34.700      .000
+                                                    DYNAMIC DERIVATIVES (PER DEGREE)
+0           -------PITCHING-------    -----ACCELERATION------    --------------ROLLING--------------    --------YAWING--------
+0   ALPHA       CLQ          CMQ           CLAD         CMAD         CLP          CYP          CNP          CNR          CLR
+0
+    -4.00      NDM          NDM           NDM          NDM          NDM          NDM          NDM          NDM          NDM 
+    -3.00                                                           NDM          NDM          NDM          NDM          NDM 
+    -2.00                                                           NDM          NDM          NDM          NDM          NDM 
+    -1.00                                                           NDM          NDM          NDM          NDM          NDM 
+      .00                                                           NDM          NDM          NDM          NDM          NDM 
+     1.00                                                           NDM          NDM          NDM          NDM          NDM 
+     2.00                                                           NDM          NDM          NDM          NDM          NDM 
+     3.00                                                           NDM          NDM          NDM          NDM          NDM 
+     4.00                                                           NDM          NDM          NDM          NDM          NDM 
+0*** NDM PRINTED WHEN NO DATCOM METHODS EXIST
+0*** VEHICLE WEIGHT =  50000.00 LB.
+0*** LEVEL FLIGHT LIFT COEFFICIENT =  .05663
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                             CONFIGURATION AUXILIARY AND PARTIAL OUTPUT
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.200   20000.00    1244.18   9.7327E+02     447.415     4.7215E+06           900.000     28.400    53.200    34.700      .000
+
+
+                                                       BASIC BODY PROPERTIES
+
+            WETTED AREA      XCG     ZCG     BASE AREA     ZERO LIFT DRAG   BASE DRAG   FRICTION DRAG   PRESSURE DRAG
+              .7093E+03    34.70     .00      14.1863         .3771E-02     .1217E-02     .1365E-02      -.1864E-10
+
+
+                                         XCG RELATIVE TO THEORETICAL LEADING EDGE MAC=  10.52
+
+
+                                                       BASIC PLANFORM PROPERTIES
+
+                                    TAPER     ASPECT   QUARTER CHORD             QUARTER CHORD              ZERO LIFT    FRICTION
+                         AREA       RATIO      RATIO       SWEEP        MAC        X(MAC)       Y(MAC)        DRAG     COEFFICIENT
+0      WING
+ THEORITICAL INBOARD
++                      .1298E+04     .140     .2163E+01     1.300     .292E+02     .315E+02     .991E+01                       
+     EXPOSED INBOARD
++                      .8962E+03     .167     .2044E+01     1.300     .245E+02     .315E+02     .133E+02                   NA  
+            OUTBOARD
++                      .1200E-28    1.000     .1000E+01      .000     .600E+01     .220E+02     .214E+02                   NA  
+   TOTAL THEORITICAL
++                      .1298E+04     .140     .2163E+01     1.300     .292E+02     .315E+02     .991E+01                       
+       TOTAL EXPOSED
++                      .8962E+03     .167     .2044E+01     1.300     .245E+02     .315E+02     .133E+02      NA           NA  
+0   VERTICAL TAIL
+   TOTAL THEORITICAL
++                      .1805E+03     .500     .1254E+01      .000     .124E+02     .505E+02     .669E+01                       
+       TOTAL EXPOSED
++                      .9418E+02     .624     .8697E+00      .000     .106E+02     .505E+02     .102E+02      NA           NA  
+0*** NA PRINTED WHEN METHOD NOT APPLICABLE
+1                             AUTOMATED STABILITY AND CONTROL METHODS PER APRIL 1976 VERSION OF DATCOM
+                                             CONFIGURATION AUXILIARY AND PARTIAL OUTPUT
+                                                WING-BODY-VERTICAL TAIL CONFIGURATION
+                                                          TOTAL AIRCRAFT
+ -----------------------  FLIGHT CONDITIONS  ------------------------           --------------  REFERENCE DIMENSIONS  ------------
+  MACH    ALTITUDE   VELOCITY    PRESSURE    TEMPERATURE     REYNOLDS             REF.      REFERENCE LENGTH   MOMENT REF. CENTER
+ NUMBER                                                       NUMBER              AREA       LONG.     LAT.     HORIZ      VERT
+             FT       FT/SEC     LB/FT**2       DEG R         1/FT               FT**2        FT        FT        FT        FT
+0 1.200   20000.00    1244.18   9.7327E+02     447.415     4.7215E+06           900.000     28.400    53.200    34.700      .000
+0          CLA-B(W)= 1.000E-30     CLA-W(B)= 1.000E-30     K-B(W)= 1.000E-30     K-W(B)= 1.000E-30     XAC/C-B(W)= 1.000E-30
+1
+1 END OF JOB.
