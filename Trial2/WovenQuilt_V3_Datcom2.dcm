@@ -1,0 +1,55 @@
+*
+*   File : WovenQuilt_V3_Datcom.dcm
+*
+*   Purpose : Second Datcom file for the WovenQuilt V3
+*
+*   Author : Dylan Williams
+*
+*   Last update: 
+*       Feburary 21, 2024 - Created second iteration of input
+*
+
+DIM FT
+DERIV DEG
+DAMP
+PART
+
+ $FLTCON WT=50000.0, LOOP=2.0,
+         NMACH=4.0, MACH(1)=0.1,0.3,0.6,0.9
+         NALT=1.0, ALT(1)=30000.0,
+         NALPHA=11.0, 
+         ALSCHD(1)= -5.0,-4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0
+         STMACH=0.7, TSMACH=1.4, TR=1.0$
+
+ $OPTINS SREF=900.0, CBARR=22.45, BLREF=53.0, ROUGFC=0.02E-3$
+
+ $SYNTHS XCG=34.7, ZCG=0.0, 
+         XW=20.49,  ZW=0.0,  ALIW=0.0, 
+         XV=46.46,  ZV=0.0,
+         SCALE=1.0, VERTUP=.TRUE.$
+
+ $BODY NX=7.0,
+	   
+       X(1)=0.0,0.01289,0.62916,21.93,27.57,45.0,63.45,
+       R(1)=0.0,0.005,0.23862,1.95,2.5,2.0,2.125,
+       ZU(1)=0.0,0.005,0.47724,2.03,1.5,2.0,2.125,
+       ZL(1)=0.0,-0.005,-0.47724,-2.03,-1.5,-2.0,-2.125
+       BNOSE=2.0, BLN=21.9,
+       ITYPE=2.0, METHOD=1.0$
+
+ $WGPLNF CHRDR=16.0,   CHRDTP=8.0,
+         SSPN=26.5,  SSPNE=21.4,
+         SAVSI=1.3, SAVSO=55.0,
+         CHSTAT=0.25, 
+         TYPE=3.0$
+
+NACA W 6 64-208
+
+NACA H 4 0010	
+
+ $HTPLNF CHRDTP=8.0, SSPNE=9.05,  SSPN=15.045, CHRDR=16.0, 
+        CHSTAT=0.25, DHDADI=45.0,TYPE=1.0$
+
+
+
+CASEID TOTAL: WovenQuilt_V3_D1
